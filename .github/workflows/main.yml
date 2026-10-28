@@ -16,7 +16,7 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: 8.7
-      - run: unzip -q MoroStoreApp.zip
+      - run: unzip -q "$(ls *.zip | head -n 1)"
       - run: cd MoroStoreApp && gradle assembleDebug
       - run: cp MoroStoreApp/app/build/outputs/apk/debug/app-debug.apk MoroStore.apk
       - uses: softprops/action-gh-release@v2
